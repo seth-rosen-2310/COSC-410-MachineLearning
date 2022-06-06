@@ -1,0 +1,61 @@
+######################################
+Lab 2 Open-ended Questions
+
+NAME: Seth Rosen
+
+#######################################
+
+1.1) From the scatterplot, how can we tell that the combination of `PetalLengthCm` and `SepalLengthCm` has more predictive power than either feature individually? 
+
+# YOUR ANSWER HERE
+
+From the scatterplot it is clear that there the two features are linearly coorelated meaning that using both in a linear regression model will have higher predictive power than either feature alone. If the two feature were plotted against each other and had a random distribution then we couldn't say using both leads to better predictions since the two features aren't correlated. Features that are linearly coorelated means that they are more likely influenced by the individual species thus making them useful in identifying species. Additionally, each species has a different ratio of sepal to petal length as shown by the three distinct groupings of species. 
+
+1.2) From the pair plot, which Iris feature do you think is most useful for the species prediction task? Which feature do you think is least useful? Why?
+
+# YOUR ANSWER HERE
+From the plot we can see that sepal width is the worst feature to use for identification as this feature has the most overlap between the distribution of points for the three species. This means it is harder to distinguish an individual species from sepal length alone as all three types can have similar widths. 
+   
+The most useful feature for species prediction is petal width as it has the least overlap between species. This means we can more easily predict the species since all three have fairly distinct petal widths with the setosas being fully distinct. By using petal width we could accuratly predict setosas while also being able to predict the other two fairly well with only some wrong predictions. 
+
+1.3) With no additional knowledge about the FMRI data, do you expect that a shallow ML algorithm could be trained to predict whether someone is receiving this stimulus versus a control from FMRI scans with high accuracy? Why?
+
+# YOUR ANSWER HERE
+I do not think a shallow ML algorithm could be trained to predict with high accuracy due to the three sections of moderate overlap between the four seperate lines. However, an algorithm could probably be trained to have a moderate accuracy where it could correctly predict the stimulus or cue based on values at timepoints that are more distinct. If all timepoints are available when making a prediction then the algorithm can likely predict whether it is a stimulus or cue but due to the feature lines having some overlap there will almost certainly be incorrect predictions. It is hard to say the exact level of accuracy of said algorithm but it would likely be able to correctly predict 50-75% if not more, but it likely isn't going to correctly predict more than 85% of the time. 
+
+
+1.4) The Seaborn gallery has several examples of plots made using the library. Choose two plots from this gallery other than the FMRI plot and explain why you think they were a good (or bad!) choice of visualization for the underlying data. 
+
+# YOUR ANSWER HERE
+The joint plot would be a good choice for visualizing the data as it would give a clear picture of where the algorithm might wrongly predict by showing where the cue and stimulus values overlap. Showing where features overlap is helpful so that we can better predict by weighting distinct features more heavily than less distinct features. 
+
+A displot would be a bad choice to use for visualizing the data here. It would be confusing and likely wouldn't work with the data anyway so another type of plot would be better suited for the given data. 
+
+
+2.1) What does the confusion matrix tell us about the SVC classifier we have trained on the heart failure dataset?
+
+# YOUR ANSWER HERE
+The confusion matrix tells how many correct and incorrect predictions the SVC classifier we trained made. It correctly predicted 46 labels and incorrectly predicted 14 labels. It also shows that we incorrectly identified both types of labels so the overall model will need adjustments instead of just the predicitions for a single type of label. Additionally, our model correctly predicted 46/60 times or around 76.7% of the time. However, the dataset we have may not be fully representative of the population because there are many more people that did not die than that did die. Due to this imbalance, our model doesn't necessarily translate into the open world and could be less accurate than the confusion matrix shows. 
+ 
+
+3.1) What features do you expect to be MOST predictive of death in the heart failure dataset? Why?
+
+# YOUR ANSWER HERE
+I expect ejection fraction to have the most predictive power because it appears that people who died of heart attack had lower ejection fractions than those that lived. This is a fairly unique identifier unlike other variables and also has the most separation between values for those that died compared to those that lived. It would appear that lower ejection fraction is correleted with dying of a heart attack. Similarly, creatine phosphokinase likely has more predictive power than other features due to people that died of heart attack typically having lower levels of this feature than those that lived. Neither is a sole predictive feature which could be due to the dataset being unrepresentative of the population. 
+
+
+3.2) What features do you expect to be LEAST predictive of death in the heart failure dataset? Why?
+
+# YOUR ANSWER HERE
+The least predictive features
+The features I expect to be the least predictive are sex, diabetes, and smoking. From the charts we can determine that the dataset has more non-smokers, non-diabetics, and is comprised of more males than females. These features are all binary and as such aren't the greatest feature to predict death of heart failure since everyone can die of a heart attack. Additionally, the charts don't show any distinct pattern or values that make it apparent these features have high predictive power. With a more representative dataset they might show more predictive power, however, with the current data I find it unlikely that these features were that predictive of death by heart failure. 
+
+3.3) What do you think is most surprising about the relationship between features in the heart failure dataset and their relationship to patient death outcomes?
+
+# YOUR ANSWER HERE
+It is surprising that high blood pressure doesn't show a drastic increase in death by heart failure since it seems people have to worry about heart attacks when they have high blood pressure. I was also surprised that there wasn't a higher correlation between age and heart failure since elderly people have weaker hearts and many of them die due to heart failure. Both of these could be due to the composition of the dataset and I would be interested to see how they change with more data. 
+
+3.4) What does the confusion matrix tell you about the challenges of identifying Iris species? How does the information presented in the confusion matrix relate to the data visualizations from Part 1 of the lab? 
+
+# YOUR ANSWER HERE
+The confusion matrix tells us that it is easy to distinguish Iris-setosa from the other two species but it is much harder to distinguish iris-versicolor from iris-virginica. This information is to be expected when looking at the charts from part 1 where we see iris-setosa has fairly distinct values of the features used in prediction while iris-versicolor and iris-virginica can have features that are the same length making it harder to tell them apart without some alternate predictive feature. 
