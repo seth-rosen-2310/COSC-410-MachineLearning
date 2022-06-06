@@ -1,0 +1,32 @@
+###########################################
+#
+# Name: Seth Rosen
+#
+# Partner (if applicable):
+#
+###########################################
+
+1) What features are most important for this predictive task? How did you determine this? What does this tell you about the underlying phenomenon?
+
+YOUR ANSWERS HERE
+The two features that are the most important for this predictive task are rainfall and min temp. I determined this by looking at the pairplot of features as well as smaller plots. This tells me that the prediction of rainfall tomorrow is more likely if it is raining today and it is warm enough for it to continue raining instead of snowing which makes sense. 
+
+2) Describe the data preprocessing steps your pipeline performs.
+
+YOUR ANSWER HERE
+My pipeline first attempts to fill any missing data with the average by location, however, this doesn't take care of all the missing values so I then filled the remaining missing values with the feature mean. As for the string variables, I used the pandas get_dummies function to easily encode all of the features. Finally I used a standard scaler object to fit and transform the data to be used in training the model. 
+
+3) What different models did you try to improve your performance? How did they perform relative to each other?
+
+YOUR ANSWER HERE
+I first tried to use a KNN model but then ultimately I decided to use a linear regression model as it produced better results compared to my KNN models. It is possible that I didn't test different KNN models enough and that I could have had a better model but due to the amount of my other course work this week I decided to use a linear regression given its good base results and than attempt optimize it further as best I could.
+
+4) What different hyperparameters did you attempt to optimize for the model you submitted? What values did you choose in the end?
+
+YOUR ANSWER HERE
+I tried optimizing the fit_intercept and the n_jobs hyper parameters but they didn't lead to an increase in performance in the end. I decided to keep the default linear regression model as it produced the best results for the given task. It is worth noting that the linear regression model didn't have a huge number of hyperparameters to optimize. 
+
+5) Did model selection or hyperparameter optimization make the most difference for improving model performance?
+
+YOUR ANSWER HERE
+I saw the most difference in improving model performance by switching models from KNN to linear regression. In my attempts to optimaize hyperparameters I saw very little improvement in my linear regression model results. I think that had I decided to stick with KNN or use a SVM then hyperparameters would have been much more important but because I chose to use a linear regression model, hyperparameters were not as important in improving the model. 
